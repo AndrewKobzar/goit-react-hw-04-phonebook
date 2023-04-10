@@ -18,7 +18,12 @@ function App() {
   }, [contacts]);
 
   const handleAddContact = data => {
-    if (contacts.some(contact => contact.name === data.name)) {
+    if (
+      contacts.some(
+        contact =>
+          contact.name.toLocaleLowerCase() === data.name.toLocaleLowerCase()
+      )
+    ) {
       alert(`${data.name} is already in contacts`);
       return;
     }
